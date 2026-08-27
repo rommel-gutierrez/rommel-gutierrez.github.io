@@ -3,165 +3,421 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Rommel Gutierrez - Senior Backend Python Developer</title>
+<title>Rommel Gutierrez</title>
 <style>
+  :root {
+    --header-bg: #3c3c3c;
+    --sidebar-bg: #6d7d8b;
+    --ink: #1a1a1a;
+    --rule: #2a2a2a;
+    --page: #ffffff;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    background: #e8e8e8;
+  }
+
   body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    max-width: 900px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-    color: #222;
-    background-color: #f9f9f9;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    color: var(--ink);
+    background: #e8e8e8;
+    line-height: 1.38;
+    -webkit-font-smoothing: antialiased;
   }
-  h1, h2, h3 {
-    color: #007ACC;
+
+  .page {
+    width: 8.5in;
+    max-width: 100%;
+    margin: 1.5rem auto;
+    background: var(--page);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
   }
-  h1 {
-    margin-bottom: 0;
-    font-size: 2.5rem;
-    letter-spacing: 2px;
+
+  header {
+    background: var(--header-bg);
+    color: #fff;
+    text-align: center;
+    padding: 1.35rem 1rem 1.2rem;
   }
-  h2 {
-    border-bottom: 2px solid #007ACC;
-    padding-bottom: 0.3rem;
+
+  header h1 {
+    font-size: 2.15rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    font-family: Georgia, "Times New Roman", Times, serif;
   }
-  p, ul {
-    line-height: 1.5;
+
+  .columns {
+    display: grid;
+    grid-template-columns: 32.5% 1fr;
+    align-items: stretch;
+    min-height: 10in;
   }
-  ul {
-    list-style-type: disc;
-    margin-left: 1.5rem;
+
+  aside {
+    background: var(--sidebar-bg);
+    color: #fff;
+    padding: 1.15rem 1.05rem 1.6rem 1.15rem;
   }
-  .contact-info {
-    margin-top: 0.2rem;
-    margin-bottom: 2rem;
-    font-size: 1rem;
-  }
-  .contact-info a {
-    color: #007ACC;
-    text-decoration: none;
-  }
-  .section {
-    margin-bottom: 2rem;
-  }
-  .experience-item {
-    margin-bottom: 1.5rem;
-  }
-  .job-title {
-    font-weight: bold;
-    font-size: 1.1rem;
-    color: #004080;
-  }
-  .company-location {
-    font-style: italic;
+
+  aside h2 {
     font-size: 0.95rem;
-    color: #666;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    margin: 0 0 0.65rem;
   }
-  .dates {
-    font-size: 0.9rem;
-    color: #555;
+
+  aside .block + .block {
+    margin-top: 1.15rem;
   }
-  .key-tech {
+
+  .contact-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+
+  .contact-list li {
+    display: grid;
+    grid-template-columns: 1.05rem 1fr;
+    gap: 0.45rem;
+    align-items: start;
+    font-size: 0.78rem;
+    line-height: 1.3;
+  }
+
+  .contact-list a {
+    color: inherit;
+    text-decoration: none;
+    word-break: break-word;
+  }
+
+  .contact-list svg {
+    width: 0.92rem;
+    height: 0.92rem;
+    margin-top: 0.12rem;
+    flex-shrink: 0;
+  }
+
+  aside h3 {
+    font-size: 0.82rem;
+    font-weight: 700;
+    margin: 0.7rem 0 0.28rem;
+  }
+
+  aside h3:first-of-type {
+    margin-top: 0;
+  }
+
+  aside ul {
+    list-style: disc;
+    margin: 0 0 0 1.05rem;
+  }
+
+  aside li {
+    font-size: 0.74rem;
+    line-height: 1.32;
+    margin-bottom: 0.22rem;
+    padding-left: 0.12rem;
+  }
+
+  main {
+    padding: 1.15rem 1.2rem 1.6rem 1.15rem;
+    color: var(--ink);
+  }
+
+  .summary {
+    font-size: 0.82rem;
+    line-height: 1.42;
+    text-align: justify;
+    margin-bottom: 1rem;
+  }
+
+  main h2 {
+    font-size: 0.98rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    border-top: 1.5px solid var(--rule);
+    padding-top: 0.28rem;
+    margin: 0.35rem 0 0.7rem;
+  }
+
+  .job {
+    margin-bottom: 0.95rem;
+  }
+
+  .job .dates {
+    font-size: 0.8rem;
+    margin-bottom: 0.08rem;
+  }
+
+  .job .role {
+    font-size: 0.84rem;
+    margin-bottom: 0.28rem;
+  }
+
+  .job .role .title {
+    font-weight: 700;
+  }
+
+  .job .role .company {
     font-style: italic;
-    font-size: 0.9rem;
-    margin-top: 0.5rem;
+    font-weight: 400;
+  }
+
+  main ul {
+    list-style: disc;
+    margin: 0 0 0 1.15rem;
+  }
+
+  main li {
+    font-size: 0.78rem;
+    line-height: 1.36;
+    margin-bottom: 0.22rem;
+  }
+
+  .edu .dates {
+    font-size: 0.8rem;
+    margin-bottom: 0.08rem;
+  }
+
+  .edu .degree,
+  .edu .school {
+    font-size: 0.84rem;
+    font-weight: 700;
+  }
+
+  @media (max-width: 800px) {
+    body {
+      background: #fff;
+    }
+
+    .page {
+      margin: 0;
+      box-shadow: none;
+      width: 100%;
+    }
+
+    .columns {
+      grid-template-columns: 1fr;
+      min-height: 0;
+    }
+
+    header h1 {
+      font-size: 1.55rem;
+      letter-spacing: 0.1em;
+    }
+  }
+
+  @media print {
+    html,
+    body {
+      background: #fff;
+    }
+
+    .page {
+      margin: 0;
+      width: 100%;
+      box-shadow: none;
+    }
+
+    .job {
+      break-inside: avoid;
+    }
   }
 </style>
 </head>
 <body>
-  <header>
-    <h1>Rommel Gutierrez</h1>
-    <h3>Senior Backend / Python Developer</h3>
-    <div class="contact-info">
-      <p>Email: <a href="mailto:rommel.gutierrez03@gmail.com">rommel.gutierrez03@gmail.com</a></p>
-      <p>Phone: +63 977 330 1561</p>
-      <p>Location: San Pablo City, Philippines</p>
+  <div class="page">
+    <header>
+      <h1>ROMMEL GUTIERREZ</h1>
+    </header>
+
+    <div class="columns">
+      <aside>
+        <section class="block">
+          <h2>CONTACT</h2>
+          <ul class="contact-list">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11z"/>
+                <circle cx="12" cy="10" r="2.4"/>
+              </svg>
+              <span>San Pablo city, PHILIPPINES 4000</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="7" y="2" width="10" height="20" rx="2"/>
+                <path d="M11 18h2"/>
+              </svg>
+              <a href="tel:+639773301561">+639773301561</a>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2"/>
+                <path d="M3 7l9 7 9-7"/>
+              </svg>
+              <a href="mailto:rommel.gutierrez.savana@gmail.com">rommel.gutierrez.savana@gmail.com</a>
+            </li>
+          </ul>
+        </section>
+
+        <section class="block">
+          <h2>SKILLS</h2>
+
+          <h3>Cloud &amp; platform</h3>
+          <ul>
+            <li>AWS serverless architecture, IAM, AppSync, CloudWatch, S3, SNS, Step Functions, ETC.</li>
+            <li>Multi-environment delivery (development, staging, production) and environment isolation</li>
+            <li>Serverless architecture, event-driven pipelines, and cost optimization</li>
+          </ul>
+
+          <h3>Backend &amp; APIs</h3>
+          <ul>
+            <li>Python (Lambdas, agents, MCP servers)</li>
+            <li>GraphQL (AWS AppSync: schema, datasources, pipeline resolvers, VTL)</li>
+            <li>REST/OAuth integrations and callback flows</li>
+            <li>API design, tenancy, and input validation</li>
+          </ul>
+
+          <h3>Data</h3>
+          <ul>
+            <li>DynamoDB (key design, Query/GetItem access patterns, throttle mitigation)</li>
+            <li>ClickHouse (ingest, analytics schemas, warehouse sync)</li>
+            <li>Cube-style semantic/analytics modeling</li>
+            <li>ETL and warehouse sync buses for third-party data sources</li>
+          </ul>
+
+          <h3>AI &amp; agents</h3>
+          <ul>
+            <li>AWS Bedrock / AgentCore</li>
+            <li>MCP (Model Context Protocol) servers and tool/action execution</li>
+            <li>Conversational analytics (Data Chat), report creation/analysis agents</li>
+            <li>LLM routing, prompt caching, tracing, and agent memory</li>
+          </ul>
+
+          <h3>Frontend</h3>
+          <ul>
+            <li>Angular</li>
+            <li>GraphQL client work across data chat, auth, and integrations</li>
+            <li>Cross-stack UI/API changes when product work spans frontend and backend</li>
+          </ul>
+
+          <h3>Observability &amp; reliability</h3>
+          <ul>
+            <li>Sentry (issues, traces, replays) and distributed tracing through AppSync &rarr; Lambda</li>
+            <li>Lumigo, CloudWatch logs/metrics</li>
+            <li>Production incident response: reconstruct live invoke paths, fix root cause, verify in deployed environments</li>
+            <li>Performance work (GraphQL latency, Data Chat start time, DynamoDB throttling)</li>
+          </ul>
+
+          <h3>Integrations</h3>
+          <ul>
+            <li>Google APIs: Business Profile, Ads, Analytics, Search Console</li>
+            <li>Meta (Facebook Pages, Instagram organic) as analytics sources</li>
+            <li>Apple Business API</li>
+          </ul>
+
+          <h3>Engineering practice</h3>
+          <ul>
+            <li>Git, Bitbucket, Jira, Confluence</li>
+            <li>Deploy gates, release discipline, and infrastructure-as-code hygiene</li>
+            <li>Security/tenancy hardening and tracing-payload isolation from business data</li>
+          </ul>
+        </section>
+      </aside>
+
+      <main>
+        <p class="summary">
+          Engineer who owns a production SaaS platform from architecture through delivery and day-to-day operations, including the product work that sits on top of it. Comfortable building new capabilities, hardening multi-tenant systems, and leading incident response: tracing a failure to the real cause and shipping a verified fix, not a patch. Treats infrastructure, APIs, data, and AI features as one system, so performance, cost, security, and how releases go out are part of the same job. Sets the engineering bar for how things get deployed, how environments stay isolated, and how production is diagnosed, while still shipping what the business needs.
+        </p>
+
+        <h2>EXPERIENCE</h2>
+
+        <article class="job">
+          <div class="dates">April 2019 - Current</div>
+          <div class="role">
+            <span class="title">Sr. Software Engineer</span>
+            <span class="company"> Jepto</span>, Sydney, Australia
+          </div>
+          <ul>
+            <li>Own AWS serverless production across development, staging, and production: Lambda, AppSync, SAM, IAM, and environment isolation for a multi-service marketing analytics platform.</li>
+            <li>Build and maintain the GraphQL API (AppSync schema, datasources, pipeline resolvers, and Lambda backends) and keep live API configuration canonical across environments.</li>
+            <li>Design and operate the data layer, including DynamoDB access patterns, ClickHouse warehouse ingest, Cube-style analytics schemas, and warehouse sync pipelines.</li>
+            <li>Improved observability and performance via end-to-end tracing (AppSync &rarr; Lambda), reduced GraphQL latency, mitigated DynamoDB throttling, and optimised AWS costs.</li>
+            <li>Shipped backend product features for reporting, Google Business Profile, media, reviews, Google Ads, OAuth connections (including Xero), and transactional email, enhancing platform functionality.</li>
+            <li>Led production incident response with Sentry, Lumigo, CloudWatch, and Slack; reconstructed live invoke paths, identified root causes, and verified fixes in deployed environments.</li>
+            <li>Define and enforce engineering standards: deploy gates (dev and staging before production), AppSync production controls, incident-debug workflow, and commit-before-deploy discipline.</li>
+            <li>Harden security and tenancy for MCP action execution, input validation, and tracing payloads so operational metadata never contaminates business data.</li>
+            <li>Build and operate Jepto&rsquo;s AI stack: AgentCore data chat, report creation and analysis agents, MCP servers, model routing, prompt caching, and agent memory.</li>
+            <li>Implement cross-stack UI/API changes in the Angular web app when product work spans data chat, auth, integrations, and brand email.</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <div class="dates">April 2018 - April 2019</div>
+          <div class="role">
+            <span class="title">Sr. Software Engineer</span>
+            <span class="company"> Complete Business Online</span>, Metro Manila, NRC, Philippines
+          </div>
+          <ul>
+            <li>Led and managed a cross-functional engineering team of 13 developers across backend, frontend, and QA, overseeing project delivery, architecture decisions, and team development.</li>
+            <li>Aligned technical strategy and roadmap with business goals, resulting in scalable and maintainable solutions across multiple product lines.</li>
+            <li>Introduced engineering best practices, including code reviews, automated testing, and CI/CD, improving release stability and team velocity.</li>
+            <li>Collaborated with product, design, and leadership teams to define scope and estimate timelines, delivering high-impact features on schedule.</li>
+            <li>Mentored team leads and senior developers, fostering ownership and technical growth within the team.</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <div class="dates">April 2015 - April 2018</div>
+          <div class="role">
+            <span class="title">Sr. Software Engineer</span>
+            <span class="company"> Complete Business Online</span>, Metro Manila, National Capital Region, Philippines
+          </div>
+          <ul>
+            <li>Developed RESTful APIs using Python and the Pyramid framework, building modular, testable services for internal and customer-facing applications.</li>
+            <li>Built and maintained core API services, contributed to architectural decisions, and established robust, scalable infrastructure for multiple products to enhance overall system performance.</li>
+            <li>Integrated and optimized SQL-based databases, working extensively with PostgreSQL and MySQL using SQLAlchemy ORM.</li>
+            <li>Designed and maintained asynchronous job processing pipelines using RabbitMQ, improving system responsiveness and throughput.</li>
+            <li>Deployed services across AWS using a hybrid architecture of EC2 instances, Docker containers, and AWS Lambda for serverless components.</li>
+            <li>Collaborated with frontend teams and product owners to refine API contracts, ensuring delivery of features that met business requirements effectively.</li>
+            <li>Participated in code reviews and architecture discussions, promoting clean code and best practices in documentation and testing to improve code quality.</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <div class="dates">October 2011 - April 2015</div>
+          <div class="role">
+            <span class="title">PHP Developer</span>
+            <span class="company"> Truelogic Online Solutions Inc.</span>, Makati City, Philippines
+          </div>
+          <ul>
+            <li>As a PHP Developer, I focused on building and maintaining dynamic websites and web applications using both popular CMS platforms and modern PHP frameworks.</li>
+            <li>Customised and developed websites on CMS platforms including WordPress, Joomla, Drupal, Magento, and OpenCart to meet specific client requirements and enhance user experience.</li>
+            <li>Built full-featured web applications using PHP frameworks including Laravel, CodeIgniter, and CakePHP, focusing on clean architecture, MVC design, and secure practices.</li>
+            <li>Integrated third-party APIs, payment gateways, and custom plugins/modules to enhance functionality across client platforms.</li>
+            <li>Managed database design and optimization, primarily using MySQL, including migrations, performance tuning, and relational schema design.</li>
+            <li>Implemented responsive front-end components and ensured cross-browser compatibility, collaborating closely with UI/UX teams to improve overall usability.</li>
+            <li>Maintained code quality through version control (Git), documentation, and adherence to coding standards.</li>
+          </ul>
+        </article>
+
+        <h2>EDUCATION</h2>
+        <article class="edu">
+          <div class="dates">January 2010</div>
+          <div class="degree">Bachelor of Science Information Technology</div>
+          <div class="school">DLSP, San Pablo City, Laguna, Philippines</div>
+        </article>
+      </main>
     </div>
-  </header>
-
-  <section class="section" id="skills">
-    <h2>Skills</h2>
-    <ul>
-      <li>Python</li>
-      <li>AWS Services (AppSync, Lambda, DynamoDB, ECS, S3, CloudFormation, CodePipeline, API Gateway)</li>
-      <li>CICD</li>
-      <li>GraphQL</li>
-      <li>ETL / ELT</li>
-      <li>Docker & Containerization</li>
-      <li>Infrastructure as Code (Terraform, CloudFormation)</li>
-    </ul>
-  </section>
-
-  <section class="section" id="summary">
-    <h2>Summary</h2>
-    <p>
-      Results-driven Senior Backend Developer and Engineering Leader with over a decade of experience building scalable, secure, and high-performance web applications and APIs.
-      Proven track record of leading backend teams, designing cloud-native architectures, and delivering data-intensive systems using Python, AWS, and modern databases such as DynamoDB and ClickHouse.
-      Former Head of Engineering with experience mentoring developers, driving engineering culture, and aligning technical execution with business goals.
-    </p>
-  </section>
-
-  <section class="section" id="experience">
-    <h2>Experience</h2>
-
-    <div class="experience-item">
-      <div class="job-title">Sr. Backend Developer / Team Lead</div>
-      <div class="company-location">Jepto — Remote / Sydney, Australia</div>
-      <div class="dates">Apr 2019 — Present</div>
-      <ul>
-        <li>Designed and implemented scalable backend architecture supporting real-time marketing data processing from platforms like Google Ads, LinkedIn, and Facebook, handling millions of API calls monthly.</li>
-        <li>Developed backend services primarily in Python focusing on asynchronous processing, modular design, and maintainable code for data ingestion, enrichment, and delivery.</li>
-        <li>Led a backend team of 2 developers, managing technical direction, code reviews, and sprint planning across cross-functional initiatives.</li>
-        <li>Designed and optimized DynamoDB data models for high-throughput transactional workloads and leveraged ClickHouse for real-time analytics and large-scale reporting.</li>
-        <li>Built and maintained RESTful APIs ensuring stability, observability, and secure access control.</li>
-        <li>Improved performance by profiling slow code paths, optimizing DynamoDB access, and tuning ClickHouse queries.</li>
-        <li>Managed CI/CD workflows with AWS CodePipeline and infrastructure provisioning via AWS CloudFormation.</li>
-        <li>Led production debugging, release readiness, ensuring reliability, test coverage, and incident response.</li>
-      </ul>
-      <p class="key-tech">Key Technologies: Python (asyncio, boto3, requests), DynamoDB, ClickHouse, Docker, AWS (ECS, Lambda, S3, CloudFormation, CodePipeline, AppSync, API Gateway)</p>
-    </div>
-
-    <div class="experience-item">
-      <div class="job-title">Head of Engineering</div>
-      <div class="company-location">Complete Business Online — Metro Manila NRC, Philippines</div>
-      <div class="dates">Apr 2018 — Apr 2019</div>
-      <ul>
-        <li>Led and managed a cross-functional engineering team of 13 developers across backend, frontend, and QA, overseeing project delivery, architecture decisions, and team development.</li>
-        <li>Drove technical strategy and roadmap alignment with business goals, ensuring scalable, maintainable solutions across product lines.</li>
-        <li>Introduced engineering best practices including code reviews, automated testing, and CI/CD, improving release stability and velocity.</li>
-        <li>Collaborated with product, design, and leadership teams to define scope, estimate timelines, and deliver high-impact features on schedule.</li>
-        <li>Mentored team leads and senior developers, fostering ownership, growth, and continuous improvement culture.</li>
-      </ul>
-    </div>
-
-    <div class="experience-item">
-      <div class="job-title">Sr. Backend Developer</div>
-      <div class="company-location">Complete Business Online — Metro Manila, Philippines</div>
-      <div class="dates">Apr 2015 — Apr 2018</div>
-      <ul>
-        <li>Built and maintained core API services, contributed to architectural decisions, ensuring robust and scalable infrastructure for multiple products.</li>
-        <li>Developed RESTful APIs using Python and Pyramid framework, building modular and testable services.</li>
-        <li>Integrated and optimized SQL databases using PostgreSQL and MySQL with SQLAlchemy ORM.</li>
-        <li>Designed and maintained asynchronous job processing pipelines with RabbitMQ to improve system throughput.</li>
-        <li>Deployed services on AWS using EC2, Docker containers, and Lambda for serverless components.</li>
-        <li>Collaborated with frontend and product teams to refine API contracts and deliver aligned features.</li>
-        <li>Participated in code reviews and architecture discussions promoting clean code and testing best practices.</li>
-      </ul>
-    </div>
-
-    <div class="experience-item">
-      <div class="job-title">PHP Developer</div>
-      <div class="company-location">Truelogic Online Solutions Inc. — Makati City, Philippines</div>
-      <div class="dates">Oct 2011 — Apr 2015</div>
-      <ul>
-        <li>Built and maintained dynamic websites and applications using CMS platforms like WordPress, Joomla, Drupal, Magento, and OpenCart.</li>
-        <li>Developed web applications with PHP frameworks such as Laravel, CodeIgniter, and CakePHP focusing on clean architecture, MVC design, and security.</li>
-        <li>Integrated third-party APIs, payment gateways, and custom modules.</li>
-        <li>Managed MySQL database design, migrations, and performance tuning.</li>
-        <li>Implemented responsive front-end components ensuring cross-browser compatibility.</li>
-        <li>Maintained code quality with Git version control, documentation, and coding standards adherence.</li>
-      </ul>
-    </div>
-  </section>
+  </div>
 </body>
 </html>
